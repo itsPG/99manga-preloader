@@ -16,8 +16,8 @@ var PG_emb_main = '(' +  function()
 		}
 
 	}
-	cnt++;
-	
+
+
 	if (cnt != 1)
 	{
 		if (cnt == 0) $j(".a").html("<h1>Can't detect PicListUrl</h1>");
