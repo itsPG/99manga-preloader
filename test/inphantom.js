@@ -1,0 +1,1 @@
+inphantomjs = true;

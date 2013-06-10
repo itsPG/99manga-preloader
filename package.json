@@ -4,23 +4,23 @@
   "author": "PG <smartPG@gmail.com>",
   "description": "99manga",
 
-  "main": "./colorplus.js",
+  "main": "./99.user.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:itsPG/colorplus.js.git"
+    "url": "git@github.com:itsPG/99manga-preloader.git"
   },
   "keywords": [
-    "color",
-    "plus",
-    "console",
-    "ansi"
+    "99manga"
   ],
-  
+    "dependencies": {
+    "colorplus": "*",
+    "expect.js": "*"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=0.6"
   },
   "scripts": {
-  "test": "phantomjs test/pageload.js http://www.google.com"
+  "test": "phantomjs test/inject.js"
   }
 }
