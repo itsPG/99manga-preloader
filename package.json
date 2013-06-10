@@ -1,0 +1,26 @@
+{
+  "name": "99manga",
+  "version": "0.9.3",
+  "author": "PG <smartPG@gmail.com>",
+  "description": "99manga",
+
+  "main": "./colorplus.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:itsPG/colorplus.js.git"
+  },
+  "keywords": [
+    "color",
+    "plus",
+    "console",
+    "ansi"
+  ],
+  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  },
+  "scripts": {
+  "test": "phantomjs test/pageload.js http://www.google.com"
+  }
+}
