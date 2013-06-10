@@ -1,0 +1,1 @@
+assert.eql('foo', 'foo');
