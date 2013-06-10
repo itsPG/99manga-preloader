@@ -11,7 +11,7 @@ page.onConsoleMessage = function(msg) {
 page.onAlert = function(msg) {
     console.log(msg);
 };
-page.open("http://nodejs.org/api/", function(status) {
+page.open("http://99manga.com/", function(status) {
 
     phantom.exit();
 });
