@@ -1,0 +1,20 @@
+{
+	"name": "PG's 99manga & 99mh loader",
+	"version": "0.93",
+	"icons":
+	{
+		"128": "icon128.png"
+	},
+	"content_scripts" : 
+    [ {
+    	"matches" : [ "http://99manga.com/*", "http://99mh.com/*" ],
+    	"js" : [ "99.user.js" ]
+    } ],
+	"browser_action":
+	{
+		"default_icon": "icon128.png",
+		"default_title": "This is my favorite character in nobuna, pixiv id: 29651668",
+		"default_popup": "index.html"
+	},
+	"manifest_version": 2
+}
