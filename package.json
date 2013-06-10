@@ -21,6 +21,7 @@
     "node": ">=0.6"
   },
   "scripts": {
-  "test": "phantomjs test/inject.js"
+  "test": "phantomjs test/open.js",
+  "test2": "phantomjs test/inject.js"
   }
 }
