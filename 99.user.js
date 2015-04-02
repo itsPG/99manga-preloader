@@ -3,65 +3,83 @@
 
 var PG_emb_main = '(' +  function()
 {
-	var barAppendTarget;
-	window.comic_list = [];
-	window.add_src = "";
+	// hide the ad or something hateful.
+	$j("#p1").css("display","none");
+	$j("#p2").css("display","none");
+	$j("#p3").css("display","none");
+	$j("#p4").css("display","none");
+	$j("#spMsg").css("display","none");
+	$j(".cFooter").css("background-color","transparent");
 	
-	if (document.domain.search(/www\.99comic\.com/) == 0){ // for 99comic
-	
-		$j("body").prepend("<div id=\"user_region\"><h1 style=\"color:white\">Show all</h1> </div>");
-		$j("#user_region").css("height","15%");
-		
-		var target_files = sFiles.split('|');			
-		var site_url=sDS.split('|');							
-		
-		for (i = 0; i < target_files.length; i++)
-			comic_list.push(site_url[sPath-1] + target_files[i]);
-			
-		barAppendTarget=$j("#user_region");
-	}else{  // 99manga and dm.99manga
-		if (typeof PicListUrl == "undefined")
+	// for Pictures url
+	if (typeof PicListUrl == "undefined")
+	{
+		var cnt = 0;
+		for (key in window)
 		{
-			var cnt = 0;
-			for (key in window)
+			//if (key.match(/^PicL[A-Za-z0-9]+Url/ig) && window[key].match(/jpg/ig))
+			if (typeof window[key] == "string" && window[key].match(/jpg/ig) && window[key].match(/jpg/ig).length >= 5)
 			{
-				//if (key.match(/^PicL[A-Za-z0-9]+Url/ig) && window[key].match(/jpg/ig))
-				if (typeof window[key] == "string" && window[key].match(/jpg/ig) && window[key].match(/jpg/ig).length >= 5)
-				{
-
-					PicListUrl = window[key];
-					cnt++;
-				}
-
-			}
-			if (cnt != 1)
-			{
-				if (cnt == 0) $j(".a").html("<h1>Can't detect PicListUrl</h1>");
-				else if (cnt > 1) $j(".a").html("<h1>PicListUrl > 1 </h1>");
+				PicListUrl = window[key];
+				cnt++;
 			}
 		}
-			var target_files = PicListUrl.split('|');
-			var site_url = ServerList[server-1];	
-			var tmp = site_url + target_files[0];
-
-
-			for (i = 0; i < target_files.length; i++)
-				comic_list.push(site_url + target_files[i]);
-				
-		barAppendTarget=$j(".a");
-		
-	}		
-
+		if (cnt != 1)
+		{
+			if (cnt == 0) $j(".a").html("<h1>Can't detect PicListUrl</h1>");
+			else if (cnt > 1) $j(".a").html("<h1>PicListUrl > 1 </h1>");
+		}
+	}
 	
+	var target_files = PicListUrl.split('|');
+	
+	
+	// for servers url, and some default setting for each site
+	
+	if (document.domain.search(/www\.99comic\.com/) == 0) 	// for www.99comic.com	
+	{
+		var site_url = getSLUrl(cuD);
+	}
+	else if (document.domain.search(/99comic\.com/) == 0)  	// for 99comic.com
+	{
+		// The lay out of "show all" for 99comic.com
+		
+		$j(".c").css("height","auto");			
+		$j(".c").append("<br /><div class = \"PG_DIV\" style='text-align:center;'></div>");
+		
+		var site_url = ServerList[server-1];
+	}
+	else							// for 99mh & dm.99manga
+	{
+		cuD = getCSL();
+		if(!isInt(cuD)) cuD=0;
+		var site_url = getSLUrl(cuD)+sPath; 
+	}
+		
+		
+	window.comic_list = [];
+	window.add_src = "";
+	for (i = 0; i < target_files.length; i++)
+		comic_list.push(site_url + target_files[i]);
+		
+
+			
 	window.PG_page_size = comic_list.length;
 	window.PG_called_page = [];
 	window.PG_loading_count = 0;
 
+	
+	
+	// The lay out of "show all".
+	
+	$j(".cH2").append("<br /><div class = \"PG_DIV\" style='text-align:center;'></div>");	// for text-align 
 	for (i = 0; i < PG_page_size; i++)
 	{
-		barAppendTarget.append("<span id=\"PG_bar_" + i + "\" style='color:red;'>#</span>")
+		$j(".PG_DIV").append("<span id=\"PG_bar_" + i + "\" style='color:red;'>#</span>")
 	}
-	barAppendTarget.append("<br /><span id=\"PG_bar\" ></span><a id=\"PG_show_all\">show all</a>");
+	$j(".PG_DIV").append("<br /><span id=\"PG_bar\" style='font-size:20px;'><a id=\"PG_show_all\">show all</a></span>");
+	
+	
 	
 	window.PG_preload_img = function(img_no)
 	{
@@ -99,6 +117,9 @@ var PG_emb_main = '(' +  function()
 		}
 		$j("body").html(add_src);
 	});
+
+s
+
 
 }
 + ')();';
