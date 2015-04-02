@@ -43,7 +43,6 @@ var PG_emb_main = '(' +  function()
 	else if (document.domain.search(/99comic\.com/) == 0)  	// for 99comic.com
 	{
 		// The lay out of "show all" for 99comic.com
-		
 		$j(".c").css("height","auto");			
 		$j(".c").append("<br /><div class = \"PG_DIV\" style='text-align:center;'></div>");
 		
@@ -51,8 +50,6 @@ var PG_emb_main = '(' +  function()
 	}
 	else							// for 99mh & dm.99manga
 	{
-		cuD = getCSL();
-		if(!isInt(cuD)) cuD=0;
 		var site_url = getSLUrl(cuD)+sPath; 
 	}
 		
