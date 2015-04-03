@@ -40,7 +40,7 @@ var PG_emb_main = '(' +  function()
 	{
 		var site_url = getSLUrl(cuD);
 	}
-	else if (document.domain.search(/99comic\.com/) == 0)  	// for 99comic.com
+	else if (document.domain.search(/99comic\.com/) == 0 || document.domain.search(/99manga\.com/) == 0)  	// for 99comic.com  & 99manga.com
 	{
 		// The lay out of "show all" for 99comic.com
 		$j(".c").css("height","auto");			
