@@ -12,26 +12,12 @@ var PG_emb_main = '(' +  function()
 	$j(".cFooter").css("background-color","transparent");
 	
 	// for Pictures url
-	if (typeof PicListUrl == "undefined")
-	{
-		var cnt = 0;
-		for (key in window)
-		{
-			//if (key.match(/^PicL[A-Za-z0-9]+Url/ig) && window[key].match(/jpg/ig))
-			if (typeof window[key] == "string" && window[key].match(/jpg/ig) && window[key].match(/jpg/ig).length >= 5)
-			{
-				PicListUrl = window[key];
-				cnt++;
-			}
-		}
-		if (cnt != 1)
-		{
-			if (cnt == 0) $j(".a").html("<h1>Can't detect PicListUrl</h1>");
-			else if (cnt > 1) $j(".a").html("<h1>PicListUrl > 1 </h1>");
-		}
-	}
-	
-	var target_files = PicListUrl.split('|');
+	if (typeof PicListUrl == "undefined" && typeof PicListUrls == "undefined")
+		var target_files = sFiles.split('|');
+	else if (typeof PicListUrl == "undefined" && typeof sFiles == "undefined")
+		var target_files = PicListUrls.split('|');
+	else
+		var target_files = PicListUrl.split('|');
 	
 	
 	// for servers url, and some default setting for each site
