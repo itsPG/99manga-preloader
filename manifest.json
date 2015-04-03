@@ -6,7 +6,7 @@
    },
    "content_scripts": [ {
       "js": [ "99.user.js" ],
-      "matches": [ "http://99manga.com/*", "http://99mh.com/*" ,"http://www.99comic.com/*" ]
+      "matches": [ "http://99manga.com/*", "http://99mh.com/*" ,"http://www.99comic.com/*","http://dm.99manga.com/*", "http://99comic.com/*" ]
    } ],
    "icons": {
       "128": "icon128.png"
