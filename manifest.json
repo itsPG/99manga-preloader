@@ -6,9 +6,10 @@
 	},
 	"content_scripts": [ {
 		"js": [
-			"99.user.js",
+			"lib/jquery.js",
 			"lib/underscore.js",
-			"lib/ring.js"
+			"lib/ring.js",
+			"99.user.js"
 		],
 		"matches": [ "http://99manga.com/*", "http://99mh.com/*" ,"http://www.99comic.com/*","http://dm.99manga.com/*", "http://99comic.com/*" ]
 	} ],
@@ -19,5 +20,5 @@
 	"manifest_version": 2,
 	"name": "PG's 99manga & 99mh loader",
 	"update_url": "https://clients2.google.com/service/update2/crx",
-	"version": "0.95"
+	"version": "0.2.1"
 }
