@@ -136,7 +136,9 @@ function emb_script(script, callback) {
 			script_body.textContent = script;
 		}
 		insert_script();
-		callback.call();
+		if (_.isFunction(callback)) {
+			callback.call();
+		}
 		remove_script();
 	}
 
@@ -144,7 +146,7 @@ function emb_script(script, callback) {
 
 emb_script('http://code.jquery.com/jquery-1.8.1.min.js', function() {
 	emb_script("$j = window.jQuery.noConflict();" + PG_emb_main, function() {
-		console.log('done');
+		//console.log('done');
 	});
 });
 
